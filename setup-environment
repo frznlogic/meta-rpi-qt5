@@ -119,7 +119,7 @@ fi
 
 # Ensure all files in sources/base are kept in sync with project root
 updated=
-for f in $CWD/sources/base/*; do
+for f in $CWD/sources/rpi-wayland-qt5-bsp/*; do
     file="$(basename $f)"
     if [ "$file" = "conf" ] || echo $file | grep -q '~$'; then
         continue
