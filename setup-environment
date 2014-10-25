@@ -117,7 +117,7 @@ if [ -e sources/oe-core ]; then
     OEROOT=sources/oe-core
 fi
 
-# Ensure all files in sources/base are kept in sync with project root
+# Ensure all files in sources/rpi-wayland-qt5-bsp are kept in sync with project root
 updated=
 for f in $CWD/sources/rpi-wayland-qt5-bsp/*; do
     file="$(basename $f)"
@@ -154,7 +154,7 @@ if [ ! -e conf/local.conf.sample ]; then
     mv conf/local.conf conf/local.conf.sample
 
     # Generate the local.conf based on the Yocto defaults
-    TEMPLATES=$CWD/sources/base/conf 
+    TEMPLATES=$CWD/sources/rpi-wayland-qt5-bsp/conf 
     grep -v '^#\|^$' conf/local.conf.sample > conf/local.conf
     cat >> conf/local.conf <<EOF
 
