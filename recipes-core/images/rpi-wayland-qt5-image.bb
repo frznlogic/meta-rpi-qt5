@@ -2,7 +2,7 @@ DESCRIPTION = "Image for creating a small bootable image"
 
 inherit core-image
 
-IMAGE_INSTALL += "weston wayland qtbase qtwayland"
+IMAGE_INSTALL += "userland weston wayland qtbase qtwayland"
 
 # helpers (dev)
 IMAGE_FEATURES += "package-management hwcodecs"
