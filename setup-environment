@@ -125,10 +125,12 @@ for f in $CWD/sources/rpi-wayland-qt5-bsp/*; do
         continue
     fi
 
+    if [ -f $f ] ; then 
     if ! cmp -s "$file" "$f"; then
         updated="true"
         [ -e $file ] && chmod u+w $file
         cp $f $file
+    fi
     fi
 done
 if [ "$updated" = "true" ]; then

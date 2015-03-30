@@ -2,10 +2,11 @@ DESCRIPTION = "Image for creating a small bootable image"
 
 inherit core-image
 
-IMAGE_INSTALL += "userland weston wayland qtbase qtwayland"
+IMAGE_INSTALL += "userland wayland qtbase"
+IMAGE_INSTALL += "qtwebkit"
 
 # helpers (dev)
-IMAGE_FEATURES += "package-management hwcodecs"
+IMAGE_FEATURES += "package-management hwcodecs x11"
 
 TOOLCHAIN_HOST_TASK += "nativesdk-cmake"
 
