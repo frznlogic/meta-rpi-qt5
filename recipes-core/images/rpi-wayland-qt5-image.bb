@@ -4,18 +4,37 @@ inherit core-image
 
 include rpi-hwup-image.bb
 
-IMAGE_INSTALL += "userland wayland qtbase"
+IMAGE_INSTALL += " \
+    bash \
+    less \
+    bzip2 \
+    gzip \
+    coreutils \
+    procps \
+    psplash \
+    python-django \
+"
 
-IMAGE_INSTALL += "bash"
-IMAGE_INSTALL += "coreutils"
-IMAGE_INSTALL += "procps"
-IMAGE_INSTALL += "psplash"
-IMAGE_INSTALL += "python-django"
-IMAGE_INSTALL += "userland"
-IMAGE_INSTALL += "wiringpi"
-IMAGE_INSTALL += "rpio"
-IMAGE_INSTALL += "rpi-gpio"
-IMAGE_INSTALL += "qtwebkit"
+IMAGE_INSTALL += " \
+    wayland \
+    weston \
+"
+
+
+IMAGE_INSTALL += " \
+    qtbase \
+    qtdeclarative \
+    qtdeclarative-qmlplugins \
+    qtdeclarative-tools \
+    qtwebkit \
+"
+
+IMAGE_INSTALL += " \
+    userland \
+    wiringpi \
+    rpio \
+    rpi-gpio \
+"
 
 # helpers (dev)
 IMAGE_FEATURES += "package-management hwcodecs x11"
