@@ -1,0 +1,3 @@
+
+PACKAGECONFIG += "networkd resolved"
+
