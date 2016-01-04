@@ -29,6 +29,10 @@ IMAGE_INSTALL += " \
 "
 
 IMAGE_INSTALL += " \
+    qmlmirror \
+"
+
+IMAGE_INSTALL += " \
     userland \
     wiringpi \
     rpio \
