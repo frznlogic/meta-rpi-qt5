@@ -48,5 +48,3 @@ toolchain_create_sdk_env_script_append() {
 # No need for too much space right now, but some extra is always nice. 
 IMAGE_ROOTFS_SIZE ?= "1000000"
 
-IMAGE_FSTYPES ?= "ext3 sdcard"
-
