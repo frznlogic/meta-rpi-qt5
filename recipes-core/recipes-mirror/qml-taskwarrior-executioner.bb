@@ -2,9 +2,7 @@
 DESCRIPTION = "QML TaskWarrior Executioner"
 HOMEPAGE = "https://www.frozentux.net"
 LICENSE = "MPL-2.0"
-DEPENDS += "qtbase qtscript"
-
-RDEPENDS_${PN} += "qtdeclarative"
+DEPENDS += "qtbase qtscript qtdeclarative"
 
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=9741c346eef56131163e13b9db1241b3"
 
