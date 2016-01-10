@@ -14,6 +14,14 @@ PACKAGECONFIG += "\
     icu \
     gstreamer \
     eglfs \
+    ${PACKAGECONFIG_GL} \
+    ${PACKAGECONFIG_FB} \
+    ${PACKAGECONFIG_X11} \
+    ${PACKAGECONFIG_FONTS} \
+    ${PACKAGECONFIG_SYSTEM} \
+    ${PACKAGECONFIG_MULTIMEDIA} \
+    ${PACKAGECONFIG_DISTRO} \
+    accessibility \
 "
 
 QT_CONFIG_FLAGS += " \

@@ -1,0 +1,20 @@
+--- a/interface/khronos/CMakeLists.txt	2016-01-07 08:26:15.675752551 +0100
++++ b/interface/khronos/CMakeLists.txt	2016-01-07 08:27:21.360364120 +0100
+@@ -95,6 +95,7 @@
+    )
+ 
+    add_library(wayland-egl ${SHARED} ${WAYLAND_EGL_SOURCE})
++   add_dependencies(wayland-egl myVmcs_hostTarget)
+    install(TARGETS wayland-egl DESTINATION lib)
+ 
+    configure_file ("wayland-egl/wayland-egl.pc.in" "wayland-egl/wayland-egl.pc" @ONLY)
+--- a/interface/vmcs_host/CMakeLists.txt	2016-01-07 08:28:40.428862435 +0100
++++ b/interface/vmcs_host/CMakeLists.txt	2016-01-07 08:28:49.680905398 +0100
+@@ -23,6 +23,7 @@
+     ../../interface/wayland/dispmanx.xml
+     dispmanx
+ )
++add_custom_target (myVmcs_hostTarget DEPENDS wayland-dispmanx-server-protocol.h)
+ endif ()
+ 
+ add_library(vchostif ${VCHOSTIF_SOURCE})

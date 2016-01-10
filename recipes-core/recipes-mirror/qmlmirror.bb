@@ -5,7 +5,7 @@ LICENSE = "MPL-2.0"
 LIC_FILES_CHKSUM = " \
     file://LICENSE;md5=9741c346eef56131163e13b9db1241b3 \
 "
-DEPENDS += "qtbase qtdeclarative qtquick1 qtmultimedia"
+DEPENDS += "qtbase qtdeclarative qtquick1 qtmultimedia qtscript"
 
 PR = "r1"
 

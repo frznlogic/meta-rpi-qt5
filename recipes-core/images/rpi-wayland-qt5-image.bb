@@ -12,11 +12,14 @@ IMAGE_INSTALL += " \
     coreutils \
     procps \
     psplash \
-    python-django \
+    openssh \
 "
 
 IMAGE_INSTALL += " \
     wayland \
+    weston \
+    weston-examples \
+    speex \
 "
 
 
@@ -48,6 +51,13 @@ TOOLCHAIN_HOST_TASK += "nativesdk-cmake"
 toolchain_create_sdk_env_script_append() {
         echo 'export PATH=$PATH:$SDKTARGETSYSROOT/usr/lib/cmake' >> $script
 }
+
+do_rootfs_postprocess_dev() {
+    install -Dm0644 ${THISDIR}/${PN}/wired.network \
+        ${IMAGE_ROOTFS}/${sysconfdir}/systemd/network/wired.network
+}
+
+ROOTFS_POSTPROCESS_COMMAND += "do_rootfs_postprocess_dev; "
 
 # No need for too much space right now, but some extra is always nice. 
 IMAGE_ROOTFS_SIZE ?= "1000000"
