@@ -12,8 +12,7 @@ PACKAGECONFIG += "\
     widgets \
     openssl \
     icu \
-    gstreamer \
-    eglfs \
+    gles2 \
     ${PACKAGECONFIG_GL} \
     ${PACKAGECONFIG_FB} \
     ${PACKAGECONFIG_X11} \
@@ -25,6 +24,9 @@ PACKAGECONFIG += "\
 "
 
 QT_CONFIG_FLAGS += " \
-    -release -device-option CROSS_COMPILE=$PATH_TO_SYSROOT_DIR/x86_64-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi- \
+    -device-option CROSS_COMPILE=$PATH_TO_SYSROOT_DIR/x86_64-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi- \
     -I$PATH_TO_SYSROOT_DIR/raspberrypi/usr/include/interface/vcos/pthreads \
+    -I${STAGING_DIR_TARGET}/usr/include/interface/vmcs_host/linux \
 " 
+
+LDFLAGS_prepend = " -lGLESv2 "
