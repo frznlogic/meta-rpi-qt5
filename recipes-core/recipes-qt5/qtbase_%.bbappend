@@ -1,18 +1,12 @@
-DEPENDS += "\
-    xserver-xorg \
-    userland \
-"
-#QMAKE_LIBS_EGL += "/home/oan/Projects/rpi/test/build/tmp-eglibc/sysroots/raspberrypi/usr/lib/libGLESv2.so"
+COMPATIBLE_MACHINE = "(raspberrypi2|raspberrypi)"
 
-PACKAGECONFIG += "\
-    release \
-    dbus \
-    udev \
-    evdev \
-    widgets \
-    openssl \
-    icu \
-    gles2 \
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+SRC_URI_append = "file://0001-fix-rasp-build.patch"
+
+PACKAGECONFIG = " \
+    ${PACKAGECONFIG_RELEASE} \
+    ${PACKAGECONFIG_DEFAULT} \
+    ${PACKAGECONFIG_OPENSSL} \
     ${PACKAGECONFIG_GL} \
     ${PACKAGECONFIG_FB} \
     ${PACKAGECONFIG_X11} \
@@ -20,13 +14,9 @@ PACKAGECONFIG += "\
     ${PACKAGECONFIG_SYSTEM} \
     ${PACKAGECONFIG_MULTIMEDIA} \
     ${PACKAGECONFIG_DISTRO} \
-    accessibility \
+    gles2 icu alsa \
 "
 
-QT_CONFIG_FLAGS += " \
-    -device-option CROSS_COMPILE=$PATH_TO_SYSROOT_DIR/x86_64-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi- \
-    -I$PATH_TO_SYSROOT_DIR/raspberrypi/usr/include/interface/vcos/pthreads \
-    -I${STAGING_DIR_TARGET}/usr/include/interface/vmcs_host/linux \
-" 
+EXTRA_OECONF += "'-I${STAGING_DIR_TARGET}/usr/include/interface/vcos/pthreads/' \
+                 '-I${STAGING_DIR_TARGET}/usr/include/interface/vmcs_host/linux/'" 
 
-LDFLAGS_prepend = " -lGLESv2 "

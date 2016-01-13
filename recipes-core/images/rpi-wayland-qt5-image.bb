@@ -2,8 +2,6 @@ DESCRIPTION = "Image for creating a small bootable image"
 
 inherit core-image
 
-include rpi-hwup-image.bb
-
 IMAGE_INSTALL += " \
     bash \
     less \
@@ -28,7 +26,6 @@ IMAGE_INSTALL += " \
     qtdeclarative \
     qtdeclarative-qmlplugins \
     qtdeclarative-tools \
-    qtwebkit \
 "
 
 IMAGE_INSTALL += " \
@@ -43,7 +40,7 @@ IMAGE_INSTALL += " \
 "
 
 # helpers (dev)
-IMAGE_FEATURES += "package-management hwcodecs x11"
+IMAGE_FEATURES += "package-management hwcodecs"
 
 TOOLCHAIN_HOST_TASK += "nativesdk-cmake"
 
