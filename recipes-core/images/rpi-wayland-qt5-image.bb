@@ -1,6 +1,9 @@
 DESCRIPTION = "Image for creating a small bootable image"
 
-inherit core-image
+inherit core-image populate_sdk_qt5
+
+IMAGE_FEATURES += "package-management hwcodecs tools-debug"
+
 
 IMAGE_INSTALL += " \
     bash \
@@ -12,14 +15,6 @@ IMAGE_INSTALL += " \
     psplash \
     openssh \
 "
-
-IMAGE_INSTALL += " \
-    wayland \
-    weston \
-    weston-examples \
-    speex \
-"
-
 
 IMAGE_INSTALL += " \
     qtbase \
@@ -37,17 +32,8 @@ IMAGE_INSTALL += " \
     wiringpi \
     rpio \
     rpi-gpio \
+    speex \
 "
-
-# helpers (dev)
-IMAGE_FEATURES += "package-management hwcodecs"
-
-TOOLCHAIN_HOST_TASK += "nativesdk-cmake"
-
-# Add "/usr/lib/cmake" to the PATH variable so that CMake can find the *Config.cmake" when FIND_PACKAGE() is called from a CMake makefile
-toolchain_create_sdk_env_script_append() {
-        echo 'export PATH=$PATH:$SDKTARGETSYSROOT/usr/lib/cmake' >> $script
-}
 
 do_rootfs_postprocess_dev() {
     install -Dm0644 ${THISDIR}/${PN}/wired.network \
@@ -55,7 +41,4 @@ do_rootfs_postprocess_dev() {
 }
 
 ROOTFS_POSTPROCESS_COMMAND += "do_rootfs_postprocess_dev; "
-
-# No need for too much space right now, but some extra is always nice. 
-IMAGE_ROOTFS_SIZE ?= "1000000"
 
