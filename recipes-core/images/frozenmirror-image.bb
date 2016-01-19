@@ -24,7 +24,7 @@ IMAGE_INSTALL += " \
 "
 
 IMAGE_INSTALL += " \
-    qmlmirror \
+    frozenmirror \
 "
 
 IMAGE_INSTALL += " \

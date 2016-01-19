@@ -1,5 +1,5 @@
-meta-rpi-qt5
-============
+meta-frozenmirror
+=================
 
 This is a yocto meta layer containing some minor adaptations and build 
 instructions to generate a raspberry pi 1/2 image which contains Qt5.4. 
