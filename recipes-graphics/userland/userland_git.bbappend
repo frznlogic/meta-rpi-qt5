@@ -1,2 +1,3 @@
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-SRC_URI_append = "file://0002-fix-build.patch"
+SRC_URI:append = "file://0002-fix-build.patch"

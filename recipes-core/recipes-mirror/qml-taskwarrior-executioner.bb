@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=9741c346eef56131163e13b9db1241b3"
 
 PR = "r1"
 
-inherit cmake_qt5
+inherit cmake_qt6
 
 SRC_URI = " \
     git://github.com/frznlogic/qml-taskwarrior-executioner.git \

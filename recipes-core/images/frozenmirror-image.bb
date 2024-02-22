@@ -1,6 +1,6 @@
 DESCRIPTION = "Image for creating a small bootable image"
 
-inherit core-image populate_sdk_qt5
+inherit core-image populate_sdk_qt6
 
 IMAGE_FEATURES += "package-management hwcodecs tools-debug"
 

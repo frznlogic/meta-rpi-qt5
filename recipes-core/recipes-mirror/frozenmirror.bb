@@ -9,7 +9,7 @@ DEPENDS += "qtbase qtdeclarative qtquick1 qtmultimedia qtscript"
 
 PR = "r1"
 
-inherit cmake_qt5 systemd
+inherit cmake_qt6 systemd
 
 SRC_URI += " \
     git://github.com/frznlogic/qmlmirror.git \
